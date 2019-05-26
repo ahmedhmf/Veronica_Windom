@@ -7,6 +7,7 @@
 	<link rel="shortcut icon" href="img/fav.png">
 	<!-- Author Meta -->
 	<meta name="author" content="colorlib">
+
 	<!-- Meta Description -->
 	<meta name="description" content="">
 	<!-- Meta Keyword -->
@@ -17,6 +18,9 @@
 	<title>Veronica Windom</title>
 
 	<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+	integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+	crossorigin=""/>
 	<!--
 	CSS
 	============================================= -->
@@ -29,6 +33,7 @@
 	<link rel="stylesheet" href="css/animate.min.css">
 	<link rel="stylesheet" href="css/owl.carousel.css">
 	<link rel="stylesheet" href="css/main.css">
+	<link href="css/maps/jqvmap.css" media="screen" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 	<header id="header">
@@ -192,7 +197,7 @@
 		</div>
 	</section>
 	<!-- end fact Area -->
-
+	 <div id="mapid" style="height: 180px;"></div>
 	<!-- Start portfolio-area Area -->
 	<section class="portfolio-area section-gap" id="portfolio">
 			<div class="container">
@@ -460,9 +465,12 @@
 
 				<!-- Start brands Area -->
 
+
 				<!-- Start News letter Area -->
 				<section class="testimonial-area recent-blog-area section-gap">
 					<div class="container">
+						<div class="row">
+							<div class="col-md-6">
 						<div class="row d-flex justify-content-center">
 							<div class="menu-content pb-30 col-lg-8">
 								<div class="title text-center">
@@ -483,6 +491,19 @@
 							</div>
 						</form>
 					</div>
+					<div class="col-md-6">
+						<div class="row d-flex justify-content-center">
+							<div class="menu-content pb-30 col-lg-8">
+								<div class="title text-center">
+									<h1 class="mb-10">Follow me</h1>
+									<p>Get my latest location.</p>
+								</div>
+							</div>
+						</div>
+						<div id="vmap" style="width: 100%; height: 100%;"></div>
+					</div>
+					</div>
+				</div>
 				</section>
 				<!-- end News letter Area -->
 				<section class="brands-area">
@@ -579,5 +600,30 @@
 					<script src="js/owl.carousel.min.js"></script>
 					<script src="js/mail-script.js"></script>
 					<script src="js/main.js"></script>
+			    <script type="text/javascript" src="js/maps/jquery.vmap.js"></script>
+			    <script type="text/javascript" src="js/maps/maps/jquery.vmap.world.js" charset="utf-8"></script>
+			    <script type="text/javascript" src="js/maps/jquery.vmap.sampledata.js"></script>
+
+    <script>
+      jQuery(document).ready(function () {
+        jQuery('#vmap').vectorMap({
+          map: 'world_en',
+					pins: { "no" : "\u003cimg style=\"width:20px\" src=\"img/pk.png\" /\u003e"},
+			 pinMode: 'content',
+          backgroundColor: 'transparent',
+          color: '#edded7',
+          hoverOpacity: 0.7,
+          selectedColor: '#666666',
+          enableZoom: false,
+          showTooltip: true,
+          scaleColors: ['#edded7'],
+          normalizeFunction: 'polynomial'
+
+        });
+      });
+    </script>
+		<div style="display:none">
+  <img id="pin_for_pk" src="img/pk.png" />
+</div>
 				</body>
 				</html>
